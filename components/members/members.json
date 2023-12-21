@@ -1,0 +1,24 @@
+{
+  "members": [
+    {
+      "name": "Aaron Gabriel Palpallatoc",
+      "isTeamLead": false,
+      "isCurrentMember": false,
+      "roles": {
+        "UI/UX": false,
+        "Front-end": true,
+        "Back-end": true
+      },
+      "programmingLanguages": ["HTML", "CSS", "JS/TS", "Java", "C#", "C"],
+      "frameworksAndLibraries": [
+        "NodeJS",
+        "Express",
+        "ReactJS",
+        "Tailwind CSS",
+        "MongoDB",
+        "MySQL"
+      ],
+      "tools": ["Git", "Photoshop", "Figma", "Postman", "Cloudflare", "Fly.io"]
+    }
+  ]
+}
