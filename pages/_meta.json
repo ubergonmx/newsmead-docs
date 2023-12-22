@@ -1,15 +1,42 @@
 {
-  "index": "Introduction",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "index": {
+    "title": "Introduction",
+    "theme": {
+      "breadcrumb": false,
+      "typesetting": "article"
+    }
+  },
+  "---user-guide": {
+    "title": "User Guide",
+    "type": "separator"
+  },
+  "newsmead-api": "NewsMead API",
+  "newsmead-app": "NewsMead App",
+
+  "---infrastructure": {
+    "title": "Infrastructure",
+    "type": "separator"
+  },
+  "azure-server-setup": "Azure Server Setup",
+
+  "---contributing": {
+    "title": "Contributing",
+    "type": "separator"
+  },
+  "manage-document": "Managing Documentation",
+  "custom-components": "Custom Components",
+
   "about": {
     "title": "About",
-    "type": "page"
+    "type": "page",
+    "theme": {
+      "typesetting": "article"
+    }
   },
   "contact": {
-    "title": "Contact ↗",
+    "title": "Contact",
     "type": "page",
-    "href": "https://twitter.com/shuding_",
+    "href": "https://discordapp.com/users/263841596213035009",
     "newWindow": true
   }
 }

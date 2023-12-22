@@ -1,0 +1,143 @@
+import { FileTree } from 'nextra/components'
+
+# Managing NewsMead Docs
+
+This article shows how to manage this documentation site and how to contribute to it.
+This documentation site is built using Nextra, a Markdown-based content builder for Next.js.
+
+## Prerequisites
+
+All you need to learn is in the [Nextra documentation](https://nextra.site/docs/guide). Here is the cheat sheet of [Markdown](https://www.markdownguide.org/cheat-sheet#basic-syntax) that you can use.
+
+## Naming Conventions
+
+The following are the naming conventions used in this documentation site:
+
+1. All files and folders are in `kebab-case` which are in lowercase and uses hyphens to separate words. For example, `how-to-document.md` instead of `HowToDocument.md` or `how_to_document.md`.
+2. As much as possible, limit the name of the file to 1-3 words. For example, `how-to-document.md` instead of `how-to-document-in-this-site.md`. You can modify the title in `_meta.json` to make it more descriptive.
+
+## File and Folder Structure
+
+The following file and folder structure is a presentation on how to organize the documentation site:
+
+<FileTree>
+  {/* pages folder */}
+  <FileTree.Folder name="pages" defaultOpen>
+    <FileTree.File name="_meta.json" />
+    <FileTree.File name="index.mdx" />
+    <FileTree.File name="<pageA>.mdx" />
+    <FileTree.Folder name="<pageA>" defaultOpen>
+      <FileTree.File name="_meta.json" />
+      <FileTree.File name="<page>.mdx" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+  {/* public folder */}
+  <FileTree.Folder name="public" defaultOpen>
+    <FileTree.File name="alt-tutors-docs.png" />
+    <FileTree.Folder name="images" defaultOpen>
+      <FileTree.File name="failed-to-commit.png" />
+    </FileTree.Folder>
+    <FileTree.Folder name="videos" defaultOpen>
+      <FileTree.File name="pr-review.mp4" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+  {/* components folder */}
+  <FileTree.Folder name="components" defaultOpen>
+    <FileTree.Folder name="<component name>" defaultOpen>
+      <FileTree.File name="index.tsx" />
+      <FileTree.File name="style.module.tsx (optional)" />
+    </FileTree.Folder>
+  </FileTree.Folder>
+</FileTree>
+
+### Pages Folder
+
+The [Nextra Documentation](https://nextra.site/docs/docs-theme/page-configuration#pages) shows you **the complete guide** on how to configure the pages of the documentation site.
+
+In summary:
+
+- The `pages` folder contains all the pages of the documentation site.
+- The `index.mdx` file is the home page of the documentation site.
+- The `_meta.json` file contains the metadata and configuration of the documentation site.
+- The `<page>.mdx` files and the like, are the pages of the documentation site. Depending on their setting in `_meta.json`, they can be in the sidebar or navbar. Keep in mind the [naming conventions](#naming-conventions) when creating a page file.
+- The `<pageA>` folder contains the subpages or documentation that are grouped together. You can make the `<pageA>` a visitable page by adding the `<pageA>.mdx` file, otherwise it just adds a dropdown on it in the sidebar. In the file and folder structure above, the `<pageA>` folder is visitable.
+
+### Public Folder
+
+The `public` folder contains all the assets of the documentation site.
+Keep in mind the [naming conventions](#naming-conventions) as well as the following when adding assets:
+
+- Any asset files that are for the site (such as logos like `alt-tutors-docs.png`) are placed in `publics` folder.
+- Any images used for tutorials, screenshots, etc. are placed in the `images` folder.
+- Any videos used for tutorials, demos, etc. are placed in the `videos` folder.
+
+### Components Folder
+
+Most components used are built-ins which you can check in the [Nextra Documentation](https://nextra.site/docs/guide/built-ins).
+The custom components created and used in this documentation site can be found in [Custom Components](/custom-components) page.
+
+In this file and folder structure:
+
+- The `components` folder contains all the custom components used in the documentation site.
+- The `<component name>` folder contains the component files. Keep in mind the [naming conventions](#naming-conventions) when creating a component folder.
+- The `index.tsx` file is the component file. You can copy the starter code:
+
+```tsx copy
+import styles from './style.module.css'
+
+export function ComponentName() {
+  return <div className={styles.container}>...do something here...</div>
+}
+```
+
+- The `style.module.tsx` file is the component style file and is optional if you plan to style it with [Nextra's Tailwind CSS](#styling-with-nextras-tailwind-css).
+  You can style like this:
+
+```tsx
+.container {
+  ...add styles here...
+}
+```
+
+#### Importing custom components
+
+To import a custom component, you can use the following syntax if there is no `default{:jsx}` export:
+
+```tsx
+// component with no default export
+export function ComponentName() {
+  return <div>...do something here...</div>
+}
+
+// import
+import { ComponentName } from 'components/<component name>'
+```
+
+otherwise you can use the following syntax:
+
+```tsx /default/
+// component with default export
+export default function ComponentName() {
+  return <div>...do something here...</div>
+}
+
+// import
+import ComponentName from 'components/<component name>'
+```
+
+#### Styling with Nextra's Tailwind CSS
+
+Unfortunately, Tailwind CSS isn't working in this documentation site.
+You can use Nextra's Tailwind CSS which is still Tailwind CSS but with limited class names.
+You can check the `node_modules/nextra-theme-docs/style.css` file and [unminify](https://mrcoles.com/blog/css-unminify/) it to see properly the available class names.
+
+To style a component with Nextra's Tailwind CSS, just use Tailwind CSS syntax with `nx-` prefix. For example:
+
+```tsx
+<p className="nx-mt-10">This is a paragraph with a margin top of 2.5rem.</p>
+```
+
+If it doesn't work, it means that that class name doesn't exist in the `style.css` file.
+Alternatively, you can create and use `style.module.css` file.
+
+For colors, you can check the `.dark` and `.light` classes in the `style.css` file. The color variables usually start with `--shiki-` prefix.
