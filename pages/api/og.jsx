@@ -120,7 +120,7 @@ export default async function (req) {
         <h1
           style={{
             fontSize: 102,
-            margin: '0 0 20px -2px',
+            margin: '0 0 -70px -2px',
             lineHeight: 1.1,
             textShadow: '0 2px 30px #000',
             letterSpacing: -4,
