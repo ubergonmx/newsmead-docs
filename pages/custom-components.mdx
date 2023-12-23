@@ -1,3 +1,7 @@
+---
+description: Documentation for the custom components created for this project.
+---
+
 import { Callout, Steps } from 'nextra-theme-docs'
 import { OptionTable } from 'components/table'
 import { TL, Member } from 'components/members'
@@ -26,6 +30,8 @@ import { Icon } from 'components/icons'
 3. Open the svg file and copy its code.
 4. Add a new property inside `Icons` with the name of the icon, and set its value to an anonymous function that returns the svg code as a JSX element (paste it inside the parentheses).
 
+<Callout>When adding new icons, make sure to add the icon name in alphabetical order.</Callout>
+
 **Example:**
 
 ```tsx
@@ -49,8 +55,6 @@ export const Icons = {
   ...
 }
 ```
-
-<Callout>When adding new icons, make sure to add the icon name in alphabetical order.</Callout>
 
 ### Sources for Icons
 
