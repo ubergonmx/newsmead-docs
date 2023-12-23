@@ -47,7 +47,14 @@ export default async function (req) {
         }}
       >
         <svg
-          style={{ position: 'absolute', top: 70, left: 80, width: '135px', height: '135px' }}
+          style={{
+            position: 'absolute',
+            top: 70,
+            left: 80,
+            width: '12vw',
+            height: '23vh',
+            objectFit: 'cover',
+          }}
           version="1.1"
           viewBox="0 0 98 98"
           xmlns="http://www.w3.org/2000/svg"
