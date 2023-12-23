@@ -23,9 +23,10 @@ export default async function (req) {
   const hasTitle = searchParams.has('title')
   const hasDescription = searchParams.has('description')
   const title = hasTitle ? searchParams.get('title')?.slice(0, 100) : 'NewsMead Documentation'
-  const description = hasDescription
-    ? searchParams.get('description')?.slice(0, 100)
-    : 'Documentation of NewsMead'
+  const description =
+    hasDescription !== 'undefined'
+      ? searchParams.get('description')?.slice(0, 100)
+      : 'Documentation of NewsMead'
   return new ImageResponse(
     (
       <div
