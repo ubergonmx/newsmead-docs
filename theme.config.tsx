@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
-import { DocsThemeConfig, useConfig} from 'nextra-theme-docs'
+import { DocsThemeConfig, useConfig } from 'nextra-theme-docs'
 
 const appName = 'NewsMead Docs'
 const appUrl = 'https://newsmead-docs.vercel.app'
@@ -12,11 +12,11 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: 'https://github.com/ubergonmx/newsmead-docs/blob/main',
   editLink: {
-    text: 'Edit this page on GitHub →'
+    text: 'Edit this page on GitHub →',
   },
   feedback: {
     content: 'Question? Give us feedback →',
-    labels: 'feedback'
+    labels: 'feedback',
   },
   footer: {
     text: (
@@ -52,7 +52,9 @@ const config: DocsThemeConfig = {
             </svg>
           </a>
         </div>
-        <p className="nx-mt-6 nx-text-xs">© {new Date().getFullYear()} {appName}</p>
+        <p className="nx-mt-6 nx-text-xs">
+          © {new Date().getFullYear()} {appName}
+        </p>
       </div>
     ),
   },
@@ -64,7 +66,7 @@ const config: DocsThemeConfig = {
       <>
         <meta property="og:url" content={url} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv='Content-Language' content='en' />
+        <meta httpEquiv="Content-Language" content="en" />
       </>
     )
   },
@@ -108,27 +110,24 @@ const config: DocsThemeConfig = {
         {
           href: '/newsmead-docs.png',
           rel: 'icon',
-          type: 'image/png'
-        }
+          type: 'image/png',
+        },
       ],
       additionalMetaTags: [
         { content: appName, name: 'apple-mobile-web-app-title' },
         { content: '#fff', name: 'msapplication-TileColor' },
       ],
-      description:
-        frontMatter.description || 'Documentation of NewsMead',
+      description: frontMatter.description || 'Documentation of NewsMead',
       openGraph: {
-        images: [
-          { url: frontMatter.image || `${appUrl}/og.png` }
-        ]
+        images: [{ url: frontMatter.image || `${appUrl}/og.jpg` }],
       },
-      titleTemplate: (asPath !== '/') ? `%s – ${appName}` : appName,
+      titleTemplate: asPath !== '/' ? `%s – ${appName}` : appName,
       twitter: {
         cardType: 'summary_large_image',
         site: appUrl,
-      }
+      },
     }
-  }
+  },
 }
 
 export default config
