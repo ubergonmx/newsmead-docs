@@ -4,50 +4,13 @@ import { useRouter } from 'next/router'
 import { DocsThemeConfig, useConfig} from 'nextra-theme-docs'
 
 const appName = 'NewsMead Docs'
+const appUrl = 'https://newsmead-docs.vercel.app'
 
 const config: DocsThemeConfig = {
-  head: () => {
-    const { asPath, defaultLocale, locale } = useRouter()
-    const { title } = useConfig()
-    const url =
-      'https://newsmead-docs.vercel.app' +
-      (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
-
-    return (
-      <>
-        <meta name="og:title" content={title ? title + ' – ' + appName : appName} />
-        <meta property="og:description" content="Documentation of NewsMead" />
-        <meta property="description" content="Documentation of NewsMead" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="apple-mobile-web-app-title" content={appName} />
-        <meta httpEquiv="Content-Language" content="en" />
-        <link rel="icon" href="/newsmead-docs.png" type="image/png" />
-      </>
-    )
-  },
-  logo: (
-    <span style={{ display: 'flex', gap: '5px', fontFamily: 'Garamond', fontWeight: '700' }}>
-      <Image src="/newsmead-docs.png" alt="icon" width={24} height={24} />
-      {appName}
-    </span>
-  ),
-  useNextSeoProps() {
-    const { asPath } = useRouter()
-    if (asPath !== '/') {
-      return {
-        titleTemplate: '%s – ' + appName,
-      }
-    }
-    return {
-      titleTemplate: appName,
-    }
-  },
-  project: {
-    link: 'https://github.com/ubergonmx/newsmead-docs',
-  },
   chat: {
     link: 'https://discord.gg/fMtTgw2MSr',
   },
+  docsRepositoryBase: 'https://github.com/ubergonmx/newsmead-docs/blob/main',
   editLink: {
     text: 'Edit this page on GitHub →'
   },
@@ -55,9 +18,6 @@ const config: DocsThemeConfig = {
     content: 'Question? Give us feedback →',
     labels: 'feedback'
   },
-  primaryHue: 54,
-  primarySaturation: 97,
-  docsRepositoryBase: 'https://github.com/ubergonmx/newsmead-docs/blob/main',
   footer: {
     text: (
       <div className="nx-flex nx-w-full nx-flex-col nx-items-center sm:nx-items-start">
@@ -96,6 +56,29 @@ const config: DocsThemeConfig = {
       </div>
     ),
   },
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter()
+    const url = appUrl + (defaultLocale === locale ? asPath : `/${locale}${asPath}`)
+
+    return (
+      <>
+        <meta property="og:url" content={url} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv='Content-Language' content='en' />
+      </>
+    )
+  },
+  logo: (
+    <span style={{ display: 'flex', gap: '5px', fontFamily: 'Garamond', fontWeight: '700' }}>
+      <Image src="/newsmead-docs.png" alt="icon" width={24} height={24} />
+      {appName}
+    </span>
+  ),
+  primaryHue: 54,
+  primarySaturation: 97,
+  project: {
+    link: 'https://github.com/ubergonmx/newsmead-docs',
+  },
   sidebar: {
     titleComponent({ title, type }) {
       if (type === 'separator') {
@@ -116,6 +99,35 @@ const config: DocsThemeConfig = {
   },
   toc: {
     backToTop: true,
+  },
+  useNextSeoProps() {
+    const { asPath } = useRouter()
+    const { frontMatter } = useConfig()
+    return {
+      additionalLinkTags: [
+        {
+          href: '/newsmead-docs.png',
+          rel: 'icon',
+          type: 'image/png'
+        }
+      ],
+      additionalMetaTags: [
+        { content: appName, name: 'apple-mobile-web-app-title' },
+        { content: '#fff', name: 'msapplication-TileColor' },
+      ],
+      description:
+        frontMatter.description || 'Documentation of NewsMead',
+      openGraph: {
+        images: [
+          { url: frontMatter.image || `${appUrl}/og.png` }
+        ]
+      },
+      titleTemplate: (asPath !== '/') ? `%s – ${appName}` : appName,
+      twitter: {
+        cardType: 'summary_large_image',
+        site: appUrl,
+      }
+    }
   }
 }
 
