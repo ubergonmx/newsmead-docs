@@ -104,7 +104,7 @@ const config: DocsThemeConfig = {
   },
   useNextSeoProps() {
     const { asPath } = useRouter()
-    const { frontMatter } = useConfig()
+    const { title, frontMatter } = useConfig()
     return {
       additionalLinkTags: [
         {
@@ -119,7 +119,14 @@ const config: DocsThemeConfig = {
       ],
       description: frontMatter.description || 'Documentation of NewsMead',
       openGraph: {
-        images: [{ url: frontMatter.image || `${appUrl}/og.jpg` }],
+        images: [
+          {
+            url:
+              asPath !== '/'
+                ? `${appUrl}/api/og?title=${title}&description=${frontMatter.description}`
+                : `${appUrl}/og.jpg`,
+          },
+        ],
       },
       titleTemplate: asPath !== '/' ? `%s – ${appName}` : appName,
       twitter: {
