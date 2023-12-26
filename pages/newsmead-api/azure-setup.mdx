@@ -1,0 +1,134 @@
+---
+description: >-
+  Documentation for setting up NewsMead API on Azure.
+---
+
+import { Callout, Steps } from 'nextra/components'
+
+# How to Setup Azure
+
+This documentation will guide you through the process of setting up NewsMead API on Azure.
+
+## Create a Resource Group
+
+1. Login to your Azure account.
+2. Click on **Resource groups** on the left menu.
+3. Click on **Add**.
+4. Enter a name for your resource group.
+5. Select a region.
+6. Click on **Review + create**.
+7. Click on **Create**.
+
+## Create a VM Instance
+
+1. Click on **Virtual machines** on the left menu.
+2. Click on **Add**.
+3. Enter a name for your VM.
+4. Select a region.
+5. Select **Ubuntu Server 22.04.03 LTS** as the image.
+6. Select **Standard B1s** as the size.
+7. Click on **Review + create**.
+
+## Configure the VM
+
+1. Click on **Networking** on the left menu.
+2. Click on **Add inbound port rule**.
+3. Select **HTTP** as the service.
+4. Click on **Add**.
+5. Click on **Connect**.
+6. Click on **Download a RDP file**.
+7. Click on **Download**.
+8. Open the RDP file.
+9. Click on **Connect**.
+10. Click on **Yes**.
+11. Enter your username and password.
+12. Click on **OK**.
+
+{
+// ## Install Docker
+
+// 1. Open a terminal.
+// 2. Run the following command to install Docker.
+
+// `bash
+// sudo apt install docker.io
+// `
+
+// 3. Run the following command to start Docker.
+
+// `bash
+// sudo systemctl start docker
+// `
+
+// 4. Run the following command to enable Docker.
+
+// `bash
+// sudo systemctl enable docker
+// `
+
+// 5. Run the following command to check the status of Docker.
+
+// `bash
+// sudo systemctl status docker
+// `
+
+// ## Install Docker Compose
+
+// 1. Run the following command to install Docker Compose.
+
+// ``bash
+// sudo apt install docker-compose
+//`
+}
+
+## Install Python 3.9 and `pip`
+
+<Steps>
+
+### Run the following commands to install Python 3.9.
+
+```bash
+# Add the deadsnakes PPA
+sudo add-apt-repository ppa:deadsnakes/ppa
+
+# Update the package list
+sudo apt-get update
+
+# Install Python 3.9
+sudo apt-get install -y python3.9
+
+# After the installation, you can check the version:
+python3.9 --version
+```
+
+### After installing Python, run the following commands to install `pip`.
+
+```bash
+# Install `python3.9-distutils` (required for installing `pip`):
+sudo apt-get install -y python3.9-distutils
+
+# Download `get-pip.py` script:
+wget https://bootstrap.pypa.io/get-pip.py
+
+# Install `pip` for Python 3.9:
+sudo python3.9 get-pip.py
+
+# This should install `pip` for Python 3.9. After the installation, you can check the version:
+pip3.9 --version
+```
+
+<Callout>
+
+You can also verify existing versions by running the following commands:
+
+```bash
+ls /usr/local/bin/pip*
+# /usr/local/bin/pip  /usr/local/bin/pip3  /usr/local/bin/pip3.9
+
+ls /usr/bin/python*
+# /usr/bin/python  /usr/bin/python3.10  /usr/bin/python3.9
+```
+
+</Callout>
+
+</Steps>

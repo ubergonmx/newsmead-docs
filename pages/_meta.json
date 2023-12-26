@@ -13,12 +13,6 @@
   "newsmead-api": "NewsMead API",
   "newsmead-app": "NewsMead App",
 
-  "---infrastructure": {
-    "title": "Infrastructure",
-    "type": "separator"
-  },
-  "azure-server-setup": "Azure Server Setup",
-
   "---contributing": {
     "title": "Contributing",
     "type": "separator"
