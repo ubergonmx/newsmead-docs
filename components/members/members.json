@@ -3,13 +3,13 @@
     {
       "name": "Aaron Gabriel Palpallatoc",
       "isTeamLead": false,
-      "isCurrentMember": false,
+      "isCurrentMember": true,
       "roles": {
         "UI/UX": false,
         "Front-end": true,
         "Back-end": true
       },
-      "programmingLanguages": ["HTML", "CSS", "JS/TS", "Java", "C#", "C"],
+      "programmingLanguages": ["HTML", "CSS", "JS/TS", "Python"],
       "frameworksAndLibraries": [
         "NodeJS",
         "Express",
@@ -18,7 +18,46 @@
         "MongoDB",
         "MySQL"
       ],
-      "tools": ["Git", "Photoshop", "Figma", "Postman", "Cloudflare", "Fly.io"]
+      "tools": ["Git", "Postman"]
+    },
+    {
+      "name": "Clyla Rafanan",
+      "isTeamLead": false,
+      "isCurrentMember": true,
+      "roles": {
+        "UI/UX": true,
+        "Front-end": false,
+        "Back-end": false
+      },
+      "programmingLanguages": ["HTML", "CSS", "JS/TS", "Java", "C#", "C"],
+      "frameworksAndLibraries": ["NodeJS", "Express", "ReactJS", "Tailwind CSS"],
+      "tools": ["Figma"]
+    },
+    {
+      "name": "Erik Lance Tiongquico",
+      "isTeamLead": false,
+      "isCurrentMember": true,
+      "roles": {
+        "UI/UX": false,
+        "Front-end": true,
+        "Back-end": true
+      },
+      "programmingLanguages": ["Python", "Java", "+200 more"],
+      "frameworksAndLibraries": ["NodeJS"],
+      "tools": ["Git", "Azure"]
+    },
+    {
+      "name": "Michael Jhullian Mangoba",
+      "isTeamLead": false,
+      "isCurrentMember": true,
+      "roles": {
+        "UI/UX": false,
+        "Front-end": true,
+        "Back-end": true
+      },
+      "programmingLanguages": ["Python", "C"],
+      "frameworksAndLibraries": ["NodeJS"],
+      "tools": ["Git"]
     }
   ]
 }
