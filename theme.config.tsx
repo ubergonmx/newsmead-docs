@@ -8,7 +8,7 @@ const appUrl = 'https://newsmead-docs.vercel.app'
 
 const config: DocsThemeConfig = {
   chat: {
-    link: 'https://discord.gg/fMtTgw2MSr',
+    link: 'https://discordapp.com/users/263841596213035009',
   },
   docsRepositoryBase: 'https://github.com/ubergonmx/newsmead-docs/blob/main',
   editLink: {
