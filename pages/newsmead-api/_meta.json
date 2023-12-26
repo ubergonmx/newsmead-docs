@@ -1,3 +1,5 @@
 {
-    "azure-setup": "Azure Setup"
+  "azure-setup": "Azure Setup",
+  "endpoints": "API Endpoints",
+  "infrastructure": "Infrastructure"
 }
