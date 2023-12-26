@@ -17,15 +17,19 @@ All you need to learn is in the [Nextra documentation](https://nextra.site/docs/
 
 ## Coding Conventions
 
-### Front Matter
+### Frontmatter
 
-The front matter is the metadata of the page. It is written in JSON format and is enclosed in `---` at the top of the page. For example:
+The front matter is the metadata of the page and it is **always required**. It is written in YAML format and is enclosed in `---` at the top of the page. For example:
 
 ```mdx
 ---
 title: How to Document
 description: This is a guide on how to document.
 ---
+
+import { Callout } from 'nextra-theme-docs'
+
+...
 ```
 
 ### Naming
@@ -40,6 +44,13 @@ The following are the naming conventions used in this documentation site:
 The following file and folder structure is a presentation on how to organize the documentation site:
 
 <FileTree>
+  {/* components folder */}
+  <FileTree.Folder name="components" defaultOpen>
+    <FileTree.Folder name="<component name>" defaultOpen>
+      <FileTree.File name="index.tsx" />
+      <FileTree.File name="style.module.tsx (optional)" />
+    </FileTree.Folder>
+  </FileTree.Folder>
   {/* pages folder */}
   <FileTree.Folder name="pages" defaultOpen>
     <FileTree.File name="_meta.json" />
@@ -52,19 +63,10 @@ The following file and folder structure is a presentation on how to organize the
   </FileTree.Folder>
   {/* public folder */}
   <FileTree.Folder name="public" defaultOpen>
-    <FileTree.File name="alt-tutors-docs.png" />
+    <FileTree.File name="newsmead-docs.png" />
+    <FileTree.File name="og.png" />
     <FileTree.Folder name="images" defaultOpen>
-      <FileTree.File name="failed-to-commit.png" />
-    </FileTree.Folder>
-    <FileTree.Folder name="videos" defaultOpen>
-      <FileTree.File name="pr-review.mp4" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-  {/* components folder */}
-  <FileTree.Folder name="components" defaultOpen>
-    <FileTree.Folder name="<component name>" defaultOpen>
-      <FileTree.File name="index.tsx" />
-      <FileTree.File name="style.module.tsx (optional)" />
+      <FileTree.File name="example-image-here.png" />
     </FileTree.Folder>
   </FileTree.Folder>
 </FileTree>
@@ -78,13 +80,13 @@ In summary:
 - The `pages` folder contains all the pages of the documentation site.
 - The `index.mdx` file is the home page of the documentation site.
 - The `_meta.json` file contains the metadata and configuration of the documentation site.
-- The `<page>.mdx` files and the like, are the pages of the documentation site. Depending on their setting in `_meta.json`, they can be in the sidebar or navbar. Keep in mind the [naming conventions](#naming-conventions) when creating a page file.
-- The `<pageA>` folder contains the subpages or documentation that are grouped together. You can make the `<pageA>` a visitable page by adding the `<pageA>.mdx` file, otherwise it just adds a dropdown on it in the sidebar. In the file and folder structure above, the `<pageA>` folder is visitable.
+- The `<page>.mdx` files and the like, are the pages of the documentation site. Depending on their setting in `_meta.json`, they can be in the sidebar or navbar. Keep in mind the [naming conventions](#naming) when creating a page file.
+- The `<pageA>` folder contains the subpages or documentation that are grouped together. You can make the `<pageA>` folder a visitable page by adding the `<pageA>.mdx` file beside it, otherwise it just adds a dropdown on it in the sidebar. In the file and folder structure above, the `<pageA>` folder is visitable.
 
 ### Public Folder
 
 The `public` folder contains all the assets of the documentation site.
-Keep in mind the [naming conventions](#naming-conventions) as well as the following when adding assets:
+Keep in mind the [naming conventions](#naming) as well as the following when adding assets:
 
 - Any asset files that are for the site (such as logos like `alt-tutors-docs.png`) are placed in `publics` folder.
 - Any images used for tutorials, screenshots, etc. are placed in the `images` folder.
@@ -98,7 +100,7 @@ The custom components created and used in this documentation site can be found i
 In this file and folder structure:
 
 - The `components` folder contains all the custom components used in the documentation site.
-- The `<component name>` folder contains the component files. Keep in mind the [naming conventions](#naming-conventions) when creating a component folder.
+- The `<component name>` folder contains the component files. Keep in mind the [naming conventions](#naming) when creating a component folder.
 - The `index.tsx` file is the component file. You can copy the starter code:
 
 ```tsx copy
