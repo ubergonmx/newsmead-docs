@@ -107,7 +107,7 @@ python3.9 --version
 
 ```bash
 # Install `python3.9-distutils` (required for installing `pip`):
-sudo apt-get install -y python3.9-distutils
+sudo apt-get install -y python3.9-distutils python3.9-venv python3.9-dev build-essential
 
 # Download `get-pip.py` script:
 wget https://bootstrap.pypa.io/get-pip.py
@@ -132,5 +132,56 @@ ls /usr/bin/python*
 ```
 
 </Callout>
+
+</Steps>
+
+## Clone repository and Start the API
+
+<Steps>
+
+### Run the following commands to clone the repository.
+
+```bash
+git clone https://github.com/ubergonmx/newsmead-api.git
+
+cd newsmead-api
+```
+
+### Create and start a virtual environment.
+
+```bash
+python3.9 -m venv venv
+
+# For Linux
+source venv/bin/activate
+
+# For Windows
+'venv\Scripts\activate.bat'
+```
+
+### Install the required packages.
+
+For Windows, you can go straight to installing the dependencies. For Linux, you need to install `lightfm` first.
+
+```bash
+# Upgrade pip & setuptools & wheel (for lightfm)
+pip install --upgrade pip setuptools wheel
+
+# Install lightfm
+pip install --no-use-pep517 lightfm
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Start the API.
+
+```bash
+python3.9 main.py
+
+# or
+
+uvicorn main:app
+```
 
 </Steps>
