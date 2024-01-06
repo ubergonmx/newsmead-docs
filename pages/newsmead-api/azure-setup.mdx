@@ -135,7 +135,7 @@ ls /usr/bin/python*
 
 </Steps>
 
-## Setup NGINX
+## Setup NGINX with SSL Certificate
 
 <Steps>
 
@@ -195,6 +195,25 @@ sudo nginx -t
 sudo systemctl restart nginx
 ```
 
+### Run the following commands to install [Certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal).
+
+````bash
+# Install Certbot
+sudo snap install --classic certbot
+
+# Prepare the Certbot command
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+
+# Run Certbot
+sudo certbot --nginx
+
+# Certbot will ask you some questions. Answer them accordingly.
+
+# Test automatic renewal
+sudo certbot renew --dry-run
+
+
+
 </Steps>
 
 ## Clone repository and Start the API
@@ -207,7 +226,7 @@ sudo systemctl restart nginx
 git clone https://github.com/ubergonmx/newsmead-api.git
 
 cd newsmead-api
-```
+````
 
 ### Create and start a virtual environment.
 
