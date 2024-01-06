@@ -197,7 +197,7 @@ sudo systemctl restart nginx
 
 ### Run the following commands to install [Certbot](https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal).
 
-````bash
+```bash
 # Install Certbot
 sudo snap install --classic certbot
 
@@ -211,8 +211,9 @@ sudo certbot --nginx
 
 # Test automatic renewal
 sudo certbot renew --dry-run
+```
 
-
+You can now access your API with HTTPS.
 
 </Steps>
 
@@ -226,7 +227,7 @@ sudo certbot renew --dry-run
 git clone https://github.com/ubergonmx/newsmead-api.git
 
 cd newsmead-api
-````
+```
 
 ### Create and start a virtual environment.
 
