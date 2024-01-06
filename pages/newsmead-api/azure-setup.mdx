@@ -135,6 +135,68 @@ ls /usr/bin/python*
 
 </Steps>
 
+## Setup NGINX
+
+<Steps>
+
+### Run the following commands to install NGINX.
+
+```bash
+# Install NGINX
+sudo apt install nginx
+
+# Start NGINX
+sudo systemctl start nginx
+
+# Enable NGINX
+sudo systemctl enable nginx
+
+# Check the status of NGINX
+sudo systemctl status nginx
+```
+
+### Run the following commands to configure NGINX.
+
+```bash
+# Create a new configuration file
+sudo nano /etc/nginx/sites-available/newsmead-api
+
+# Paste the following configuration into the file
+server {
+    listen 80;
+    server_name newsmead-api.com; # Replace with your domain name
+
+    location / {
+        proxy_pass http://127.0.0.1:8000; # Replace with your port
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+    error_page 404 /404.html;
+    location = /404.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+
+    error_page 500 502 503 504 /50x.html;
+    location = /50x.html {
+        root /usr/share/nginx/html;
+        internal;
+    }
+}
+
+# Create a symbolic link
+sudo ln -s /etc/nginx/sites-available/newsmead-api /etc/nginx/sites-enabled/
+
+# Test the configuration
+sudo nginx -t
+
+# Restart NGINX
+sudo systemctl restart nginx
+```
+
+</Steps>
+
 ## Clone repository and Start the API
 
 <Steps>
@@ -174,14 +236,14 @@ pip install --no-use-pep517 lightfm
 pip install -r requirements.txt
 ```
 
-### Start the API.
+### Start the API
 
 ```bash
-python3.9 main.py
+uvicorn main:app
 
 # or
 
-uvicorn main:app
+python3.9 main.py
 ```
 
 </Steps>
