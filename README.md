@@ -1,22 +1,13 @@
-# Nextra Docs Template 
+# NewsMead Documentation
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
-
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
-
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
-
-## Quick Start
-
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+This is the main documentation for [NewsMead](https://github.com/ubergonmx/newsmead) and its [API](https://github.com/ubergonmx/newsmead-api).
 
 ## Local Development
 
-First, run `pnpm i` to install the dependencies.
+First, you must have `pnpm` to use the following commands:
 
-Then, run `pnpm dev` to start the development server and visit localhost:3000.
+1. Run `pnpm i` to install the dependencies.
+2. Then, run `pnpm dev` to start the development server and visit localhost:3000.
 
 ## License
 
