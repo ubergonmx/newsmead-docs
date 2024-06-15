@@ -21,6 +21,12 @@ This documentation will guide you through the process of setting up NewsMead API
 6. Click on **Review + create**.
 7. Click on **Create**.
 
+<Callout>
+
+You can also create the resource group during the creation of the VM instance. It also makes it automatically if not specified.
+
+</Callout>
+
 ## Create a VM Instance
 
 1. Click on **Virtual machines** on the left menu.
@@ -30,6 +36,14 @@ This documentation will guide you through the process of setting up NewsMead API
 5. Select **Ubuntu Server 22.04.03 LTS** as the image.
 6. Select **Standard B1s** as the size.
 7. Click on **Review + create**.
+
+<Callout>
+
+Note: You can select a different image and size based on your requirements. Standard B1s is the cheapest option. However, it may not be suitable for production environments. In our case, we upgraded to B2ms.
+
+If you intend to use B2ms and you're from Southeast Asia, you may have to use Zone 3 for the region. The availability of the B2ms size may vary depending on the region. Experiment with different regions and zones to find the best one for you.
+
+</Callout>
 
 ## Configure the VM
 
